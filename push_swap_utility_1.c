@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_utility_1.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -12,31 +12,25 @@
 
 #include "push_swap.h"
 
-int main()
+static size_t	ft_strlen(const char *s)
 {
-    struct Stack* stack_a = createStack(100);
-    struct Stack* stack_b = createStack(100);
- 
-    push(stack_a, 10);
-    push(stack_a, 20);
-    push(stack_a, 30);
- 
-    printf("%d popped from stack\n", pop(stack_a));
- 
-	push(stack_a, 40);
+	int	i;
 
-	do_sa(stack_a);
-	do_sa(stack_a);
-	do_sa(stack_a);
-
-	printf("%d popped from stack\n", pop(stack_a));
-	printf("%d popped from stack\n", pop(stack_a));
-
-	free(stack_a->array);
-	free(stack_a);
-
-	free(stack_b->array);
-	free(stack_b);
-
-	return 0;
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
+
+static void	ft_putstr_fd(char *s, int fd)
+{
+	write(fd, s, ft_strlen(s));
+}
+
+void	ft_putstr(char *s)
+{
+	ft_putstr_fd(s, 1);
+}
+

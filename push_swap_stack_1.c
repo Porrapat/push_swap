@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_stack_1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -12,31 +12,43 @@
 
 #include "push_swap.h"
 
-int main()
+struct Stack* createStack(unsigned int capacity)
 {
-    struct Stack* stack_a = createStack(100);
-    struct Stack* stack_b = createStack(100);
- 
-    push(stack_a, 10);
-    push(stack_a, 20);
-    push(stack_a, 30);
- 
-    printf("%d popped from stack\n", pop(stack_a));
- 
-	push(stack_a, 40);
+	struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+	stack->capacity = capacity;
+	stack->top = -1;
+	stack->array = (int*)malloc(stack->capacity * sizeof(int));
+	return stack;
+}
 
-	do_sa(stack_a);
-	do_sa(stack_a);
-	do_sa(stack_a);
+int isFull(struct Stack* stack)
+{
+	return stack->top == (int)stack->capacity - 1;
+}
 
-	printf("%d popped from stack\n", pop(stack_a));
-	printf("%d popped from stack\n", pop(stack_a));
+int isEmpty(struct Stack* stack)
+{
+	return stack->top == -1;
+}
 
-	free(stack_a->array);
-	free(stack_a);
+void push(struct Stack* stack, int item)
+{
+	if (isFull(stack))
+		return;
+	stack->array[++stack->top] = item;
+	printf("%d pushed to stack\n", item);
+}
 
-	free(stack_b->array);
-	free(stack_b);
+int pop(struct Stack* stack)
+{
+	if (isEmpty(stack))
+		return INT_MIN;
+	return stack->array[stack->top--];
+}
 
-	return 0;
+int peek(struct Stack* stack)
+{
+	if (isEmpty(stack))
+		return INT_MIN;
+	return stack->array[stack->top];
 }
