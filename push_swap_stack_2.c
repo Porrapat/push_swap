@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_stack_1.c                                :+:      :+:    :+:   */
+/*   push_swap_stack_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -12,23 +12,24 @@
 
 #include "push_swap.h"
 
-t_stack	*create_stack(unsigned int capacity)
+void	push(t_stack *stack, int item)
 {
-	t_stack	*stack;
-
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	stack->capacity = capacity;
-	stack->top = -1;
-	stack->array = (int *)malloc(stack->capacity * sizeof(int));
-	return (stack);
+	if (is_full(stack))
+		return ;
+	stack->array[++stack->top] = item;
+	printf("%d pushed to stack\n", item);
 }
 
-int	is_full(t_stack *stack)
+int	pop(t_stack *stack)
 {
-	return (stack->top == (int)stack->capacity - 1);
+	if (is_empty(stack))
+		return (INT_MIN);
+	return (stack->array[stack->top--]);
 }
 
-int	is_empty(t_stack *stack)
+int	peek(t_stack *stack)
 {
-	return (stack->top == -1);
+	if (is_empty(stack))
+		return (INT_MIN);
+	return (stack->array[stack->top]);
 }

@@ -18,31 +18,31 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-struct Stack {
-	int top;
-	unsigned int capacity;
-	int *array;
-};
+typedef struct s_stack {
+	int				top;
+	unsigned int	capacity;
+	int				*array;
+}	t_stack;
 
-void	ft_putstr(char *s);
+void				ft_putstr(char *s);
 
-struct Stack*	createStack(unsigned int capacity);
-int				isFull(struct Stack* stack);
-int				isEmpty(struct Stack* stack);
-void			push(struct Stack* stack, int item);
-int				pop(struct Stack* stack);
-int				peek(struct Stack* stack);
+t_stack				*create_stack(unsigned int capacity);
+int					is_full(t_stack *stack);
+int					is_empty(t_stack *stack);
+void				push(t_stack *stack, int item);
+int					pop(t_stack *stack);
+int					peek(t_stack *stack);
 
-void			do_sa(struct Stack *stack_a);
-void			do_sb(struct Stack *stack_b);
-void			do_ss(struct Stack *stack_a, struct Stack *stack_b);
-void			do_pa(struct Stack *stack_a, struct Stack *stack_b);
-void			do_pb(struct Stack *stack_a, struct Stack *stack_b);
-void			do_ra(struct Stack *stack_a);
-void			do_rb(struct Stack *stack_b);
-void			do_rr(struct Stack *stack_a, struct Stack *stack_b);
-void			do_rra(struct Stack *stack_a);
-void			do_rrb(struct Stack *stack_b);
-void			do_rrr(struct Stack *stack_a, struct Stack *stack_b);
+void				do_sa(t_stack *stack_a);
+void				do_sb(t_stack *stack_b);
+void				do_ss(t_stack *stack_a, t_stack *stack_b);
+void				do_pa(t_stack *stack_a, t_stack *stack_b);
+void				do_pb(t_stack *stack_a, t_stack *stack_b);
+void				do_ra(t_stack *stack_a);
+void				do_rb(t_stack *stack_b);
+void				do_rr(t_stack *stack_a, t_stack *stack_b);
+void				do_rra(t_stack *stack_a);
+void				do_rrb(t_stack *stack_b);
+void				do_rrr(t_stack *stack_a, t_stack *stack_b);
 
 #endif
