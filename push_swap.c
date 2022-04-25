@@ -20,7 +20,7 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 	int max_bits = 6;
 
 	int i = 0;
-	size = stack_a->top + 1;
+	size = stack_a->top;
 	while (i < max_bits)
 	{
 		int j = 0;
