@@ -17,10 +17,10 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 	int num;
 	int size;
 
-	int max_bits = 6;
+	int max_bits = 5;
 
 	int i = 0;
-	size = stack_a->top;
+	size = stack_a->top + 1;
 	while (i < max_bits)
 	{
 		int j = 0;
@@ -33,10 +33,18 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 				do_pb(stack_a, stack_b, 1);
 			j++;
 		}
+
+		printf("--- end first while loop i = %d---\n", i);
+		print_stack(stack_a);
+		print_stack(stack_b);
 		while(!is_empty(stack_b))
 		{
 			do_pa(stack_a, stack_b, 1);
 		}
+		printf("--- end second while loop i = %d ---\n", i);
+
+		print_stack(stack_a);
+		print_stack(stack_b);
 		i++;
 	}
 }
