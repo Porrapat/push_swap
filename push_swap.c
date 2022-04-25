@@ -50,14 +50,14 @@ int	main(void)
 	stack_a = create_stack(100);
 	stack_b = create_stack(100);
 
-	push(stack_a, 4);		// 100
-	push(stack_a, 2);		// 010
-	push(stack_a, 6);		// 110
-	push(stack_a, 10);		// 1010
-	push(stack_a, 13);		// 
-	push(stack_a, 20);
-	push(stack_a, 3);
-	push(stack_a, 7);
+	push(stack_a, 4);		// 00100
+	push(stack_a, 2);		// 00010
+	push(stack_a, 6);		// 00110
+	push(stack_a, 10);		// 01010
+	push(stack_a, 13);		// 01101
+	push(stack_a, 20);		// 10010
+	push(stack_a, 3);		// 00011
+	push(stack_a, 7);		// 00111
 	
 	push_swap(stack_a, stack_b);
 
