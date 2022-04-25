@@ -17,7 +17,7 @@ void	push(t_stack *stack, int item)
 	if (is_full(stack))
 		return ;
 	stack->array[++stack->top] = item;
-	printf("%d pushed to stack\n", item);
+	// printf("%d pushed to stack\n", item);
 }
 
 int	pop(t_stack *stack)

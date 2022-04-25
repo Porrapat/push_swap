@@ -17,20 +17,18 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 	int num;
 	int size;
 
-	int max_bits = 31;
+	int max_bits = 6;
 
-	size = stack_a->top + 1;
 	int i = 0;
+	size = stack_a->top + 1;
 	while (i < max_bits)
 	{
 		int j = 0;
 		while(j < size)
 		{
-			// num = stack_a->top; // top number of A
 			num = peek(stack_a);
-			printf("Num is %d\n", num);
 			if (((num >> i) & 1) == 1) 
-				do_ra(stack_a, 1);	// if the (i + 1)-th bit is 1, leave in stack a        else pb();
+				do_ra(stack_a, 1);
 			else
 				do_pb(stack_a, stack_b, 1);
 			j++;
@@ -52,19 +50,19 @@ int	main(void)
 	stack_a = create_stack(100);
 	stack_b = create_stack(100);
 
-	push(stack_a, 4);
-	push(stack_a, 0);
-	push(stack_a, 6);
-	push(stack_a, 1);
-	push(stack_a, 5);
-	push(stack_a, 2);
+	push(stack_a, 4);		// 100
+	push(stack_a, 2);		// 010
+	push(stack_a, 6);		// 110
+	push(stack_a, 10);		// 1010
+	push(stack_a, 13);		// 
+	push(stack_a, 20);
 	push(stack_a, 3);
 	push(stack_a, 7);
 	
 	push_swap(stack_a, stack_b);
 
 	print_stack(stack_a);
-	// print_stack(stack_b);
+	print_stack(stack_b);
 
 	return (0);
 }
