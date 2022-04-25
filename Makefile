@@ -42,4 +42,7 @@ re:	fclean all
 
 bonus: all
 
-.PHONY: all clean fclean re bonus
+debug: 
+	$(CC) -g $(CFLAGS) $(SRCS)
+
+.PHONY: all clean fclean re bonus debug
