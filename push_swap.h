@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 typedef struct s_stack {
 	int				top;
@@ -33,16 +34,16 @@ void				push(t_stack *stack, int item);
 int					pop(t_stack *stack);
 int					peek(t_stack *stack);
 
-void				do_sa(t_stack *stack_a);
-void				do_sb(t_stack *stack_b);
-void				do_ss(t_stack *stack_a, t_stack *stack_b);
-void				do_pa(t_stack *stack_a, t_stack *stack_b);
-void				do_pb(t_stack *stack_a, t_stack *stack_b);
-void				do_ra(t_stack *stack_a);
-void				do_rb(t_stack *stack_b);
-void				do_rr(t_stack *stack_a, t_stack *stack_b);
-void				do_rra(t_stack *stack_a);
-void				do_rrb(t_stack *stack_b);
-void				do_rrr(t_stack *stack_a, t_stack *stack_b);
+void				do_sa(t_stack *stack_a, bool print);
+void				do_sb(t_stack *stack_b, bool print);
+void				do_ss(t_stack *stack_a, t_stack *stack_b, bool print);
+void				do_pa(t_stack *stack_a, t_stack *stack_b, bool print);
+void				do_pb(t_stack *stack_a, t_stack *stack_b, bool print);
+void				do_ra(t_stack *stack_a, bool print);
+void				do_rb(t_stack *stack_b, bool print);
+void				do_rr(t_stack *stack_a, t_stack *stack_b, bool print);
+void				do_rra(t_stack *stack_a, bool print);
+void				do_rrb(t_stack *stack_b, bool print);
+void				do_rrr(t_stack *stack_a, t_stack *stack_b, bool print);
 
 #endif

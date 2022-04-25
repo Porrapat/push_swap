@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	do_ra(t_stack *stack_a)
+void	do_ra(t_stack *stack_a, bool print)
 {
 	int	i;
 
@@ -26,10 +26,11 @@ void	do_ra(t_stack *stack_a)
 		}
 		stack_a->array[0] = stack_a->array[stack_a->top];
 	}
-	ft_putstr("ra\n");
+	if (print)
+		ft_putstr("ra\n");
 }
 
-void	do_rb(t_stack *stack_b)
+void	do_rb(t_stack *stack_b, bool print)
 {
 	int	i;
 
@@ -43,10 +44,11 @@ void	do_rb(t_stack *stack_b)
 		}
 		stack_b->array[0] = stack_b->array[stack_b->top];
 	}
-	ft_putstr("rb\n");
+	if (print)
+		ft_putstr("rb\n");
 }
 
-void	do_rr(t_stack *stack_a, t_stack *stack_b)
+void	do_rr(t_stack *stack_a, t_stack *stack_b, bool print)
 {
 	int	i;
 
@@ -64,5 +66,6 @@ void	do_rr(t_stack *stack_a, t_stack *stack_b)
 			stack_b->array[i] = stack_b->array[i - 1];
 		stack_b->array[0] = stack_b->array[stack_b->top];
 	}
-	ft_putstr("rr\n");
+	if (print)
+		ft_putstr("rr\n");
 }
