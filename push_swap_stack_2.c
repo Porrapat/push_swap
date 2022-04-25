@@ -33,3 +33,17 @@ int	peek(t_stack *stack)
 		return (INT_MIN);
 	return (stack->array[stack->top]);
 }
+
+void	print_stack(t_stack *stack)
+{
+	int	i;
+
+	i = stack->top;
+	printf("Top is %d\n", i);
+	while (i >= 0)
+	{
+		printf("%d\n", stack->array[i]);
+		i--;
+	}
+	printf("-----------\n");
+}
