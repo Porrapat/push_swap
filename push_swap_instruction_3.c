@@ -17,7 +17,7 @@ void	do_rra(t_stack *stack_a, bool print)
 	int	i;
 	int	temp;
 
-	if (stack_a->top > 1)
+	if (stack_a->top >= 1)
 	{
 		i = 0;
 		temp = stack_a->array[0];
@@ -37,7 +37,7 @@ void	do_rrb(t_stack *stack_b, bool print)
 	int	i;
 	int	temp;
 
-	if (stack_b->top > 1)
+	if (stack_b->top >= 1)
 	{
 		i = 0;
 		temp = stack_b->array[0];
@@ -57,7 +57,7 @@ void	do_rrr(t_stack *stack_a, t_stack *stack_b, bool print)
 	int	i;
 	int	temp;
 
-	if (stack_a->top > 1)
+	if (stack_a->top >= 1)
 	{
 		i = -1;
 		temp = stack_a->array[0];
@@ -65,7 +65,7 @@ void	do_rrr(t_stack *stack_a, t_stack *stack_b, bool print)
 			stack_a->array[i] = stack_a->array[i + 1];
 		stack_a->array[stack_a->top] = temp;
 	}
-	if (stack_b->top > 1)
+	if (stack_b->top >= 1)
 	{
 		i = -1;
 		temp = stack_b->array[0];

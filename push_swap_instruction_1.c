@@ -16,7 +16,7 @@ void	do_sa(t_stack *stack_a, bool print)
 {
 	int	temp;
 
-	if (stack_a->top > 1)
+	if (stack_a->top >= 1)
 	{
 		temp = stack_a->array[stack_a->top];
 		stack_a->array[stack_a->top] = stack_a->array[stack_a->top - 1];
@@ -30,7 +30,7 @@ void	do_sb(t_stack *stack_b, bool print)
 {
 	int	temp;
 
-	if (stack_b->top > 1)
+	if (stack_b->top >= 1)
 	{
 		temp = stack_b->array[stack_b->top];
 		stack_b->array[stack_b->top] = stack_b->array[stack_b->top - 1];
@@ -44,13 +44,13 @@ void	do_ss(t_stack *stack_a, t_stack *stack_b, bool print)
 {
 	int	temp;
 
-	if (stack_a->top > 1)
+	if (stack_a->top >= 1)
 	{
 		temp = stack_a->array[stack_a->top];
 		stack_a->array[stack_a->top] = stack_a->array[stack_a->top - 1];
 		stack_a->array[stack_a->top - 1] = temp;
 	}
-	if (stack_b->top > 1)
+	if (stack_b->top >= 1)
 	{
 		temp = stack_b->array[stack_b->top];
 		stack_b->array[stack_b->top] = stack_b->array[stack_b->top - 1];
