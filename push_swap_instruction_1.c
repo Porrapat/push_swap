@@ -22,7 +22,7 @@ void	do_sa(t_stack *stack_a)
 		stack_a->array[stack_a->top] = stack_a->array[stack_a->top - 1];
 		stack_a->array[stack_a->top - 1] = temp;
 	}
-	ft_putstr("do_sa\n");
+	ft_putstr("sa\n");
 }
 
 void	do_sb(t_stack *stack_b)
@@ -35,7 +35,7 @@ void	do_sb(t_stack *stack_b)
 		stack_b->array[stack_b->top] = stack_b->array[stack_b->top - 1];
 		stack_b->array[stack_b->top - 1] = temp;
 	}
-	ft_putstr("do_sb\n");
+	ft_putstr("sb\n");
 }
 
 void	do_ss(t_stack *stack_a, t_stack *stack_b)
@@ -54,23 +54,19 @@ void	do_ss(t_stack *stack_a, t_stack *stack_b)
 		stack_b->array[stack_b->top] = stack_b->array[stack_b->top - 1];
 		stack_b->array[stack_b->top - 1] = temp;
 	}
-	ft_putstr("do_ss\n");
+	ft_putstr("ss\n");
 }
 
 void	do_pa(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!is_empty(stack_b))
-	{
 		push(stack_a, pop(stack_b));
-	}
-	ft_putstr("do_pa\n");
+	ft_putstr("pa\n");
 }
 
 void	do_pb(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!is_empty(stack_a))
-	{
 		push(stack_b, pop(stack_a));
-	}
-	ft_putstr("do_pb\n");
+	ft_putstr("pb\n");
 }
