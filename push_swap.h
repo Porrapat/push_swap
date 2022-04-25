@@ -46,5 +46,5 @@ void				do_rra(t_stack *stack_a, bool print);
 void				do_rrb(t_stack *stack_b, bool print);
 void				do_rrr(t_stack *stack_a, t_stack *stack_b, bool print);
 
-void				printStack(t_stack *stack_a);
+void				print_stack(t_stack *stack_a);
 #endif
