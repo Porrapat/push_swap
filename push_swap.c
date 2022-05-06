@@ -12,9 +12,25 @@
 
 #include "push_swap.h"
 
-void	push_swap(t_stack *stack_a, t_stack *stack_b)
+static void	push_out_of_stack(t_stack *stack_a, t_stack *stack_b)
+{
+	while (!is_empty(stack_b))
+		do_pa(stack_a, stack_b, 1);
+}
+
+static void	radix_comparison(t_stack *stack_a, t_stack *stack_b, int i)
 {
 	int	num;
+
+	num = peek(stack_a);
+	if (((num >> i) & 1) == 1)
+		do_ra(stack_a, 1);
+	else
+		do_pb(stack_a, stack_b, 1);
+}
+
+void	push_swap(t_stack *stack_a, t_stack *stack_b)
+{
 	int	size;
 	int	max_bits;
 	int	i;
@@ -28,15 +44,10 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		j = 0;
 		while (j < size)
 		{
-			num = peek(stack_a);
-			if (((num >> i) & 1) == 1)
-				do_ra(stack_a, 1);
-			else
-				do_pb(stack_a, stack_b, 1);
+			radix_comparison(stack_a, stack_b, i);
 			j++;
 		}
-		while (!is_empty(stack_b))
-			do_pa(stack_a, stack_b, 1);
+		push_out_of_stack(stack_a, stack_b);
 		i++;
 	}
 }
