@@ -25,7 +25,9 @@ typedef struct s_stack {
 	int				*array;
 }	t_stack;
 
+void				ft_putchar_fd(char c, int fd);
 void				ft_putstr(char *s);
+void				ft_putnbr_fd(int n, int fd);
 
 t_stack				*create_stack(unsigned int capacity);
 int					is_full(t_stack *stack);

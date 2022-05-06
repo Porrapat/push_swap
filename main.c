@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -12,34 +12,29 @@
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		i;
 
-	stack_a = create_stack(100);
-	stack_b = create_stack(100);
-	push(stack_a, 10000);
-	push(stack_a, 12120);
-	push(stack_a, -95442);
-	push(stack_a, -7);
-	push(stack_a, -8);
-	push(stack_a, -9);
-	push(stack_a, -90);
-	push(stack_a, -80);
-	push(stack_a, 1);
-	push(stack_a, 2);
-	push(stack_a, 0);
-	push(stack_a, 70);
-	push(stack_a, 990);
-	push(stack_a, 890);
-	push(stack_a, 790);
-	push(stack_a, 991);
-	push(stack_a, 892);
-	push(stack_a, 793);
+	if(argc < 2)
+	{
+		printf("No not this\n");
+		return (0);
+	}
+	i = argc;
+	printf("i is %d\n", i);
+	stack_a = create_stack(i - 1);
+	stack_b = create_stack(i - 1);
+	while (i > 1)
+	{
+		push(stack_a, atoi(argv[i - 1]));
+		i--;
+	}
 	push_swap(stack_a, stack_b);
-	printf("------ Finished ! -------\n");
-	print_stack(stack_a);
-	print_stack(stack_b);
+	// printf("------ Finished ! -------\n");
+	// print_stack(stack_a);
+	// print_stack(stack_b);
 	return (0);
 }
