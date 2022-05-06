@@ -47,4 +47,6 @@ void				do_rrb(t_stack *stack_b, bool print);
 void				do_rrr(t_stack *stack_a, t_stack *stack_b, bool print);
 
 void				print_stack(t_stack *stack_a);
+
+void				push_swap(t_stack *stack_a, t_stack *stack_b);
 #endif
