@@ -59,6 +59,34 @@ static void	resolve_negative_value(t_stack *stack_a)
 	}
 }
 
+int	count_bits(int n)
+{
+	int count = 0;
+	while (n)
+	{
+		count++;
+		n >>= 1;
+	}
+	return count;
+}
+
+int	resolve_max_bits(t_stack *stack_a)
+{
+	int max_bits;
+	int i;
+	int current_bit;
+
+	i = stack_a->top;
+	while (i >= 0)
+	{
+		current_bit = count_bits(stack_a->array[i]);
+		if (current_bit > max_bits)
+			max_bits = current_bit;
+		i--;
+	}
+	return (max_bits);
+}
+
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size;
@@ -66,8 +94,9 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 	int	i;
 	int	j;
 
-	max_bits = 31;
 	i = 0;
+	max_bits = 31;
+	// max_bits = resolve_max_bits(stack_a);
 	size = stack_a->top + 1;
 	while (i < max_bits)
 	{
