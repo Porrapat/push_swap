@@ -20,16 +20,22 @@ SRCS = push_swap.c \
 	push_swap_utility_2.c \
 	main.c
 
+SRCS_CHECKER = checker.c 
+
 OBJS = $(SRCS:.c=.o)
 
-NAME		= push_swap
-CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra
+NAME			= push_swap
+NAME_CHECKER	= checker
+CC				= gcc
+CFLAGS			= -Wall -Werror -Wextra
 
-all: $(NAME)
+all: $(NAME) $(NAME_CHECKER)
 
 $(NAME):
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+
+$(NAME_CHECKER):
+	$(CC) $(CFLAGS) $(SRCS_CHECKER) -o $(NAME_CHECKER)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -39,6 +45,7 @@ clean:
 
 fclean:	clean
 	rm -rf $(NAME)
+	rm -rf $(NAME_CHECKER)
 
 re:	fclean all
 
