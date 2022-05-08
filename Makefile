@@ -17,6 +17,7 @@ SRCS = push_swap.c \
 	push_swap_stack_1.c \
 	push_swap_stack_2.c \
 	push_swap_utility_1.c \
+	push_swap_utility_2.c \
 	main.c
 
 OBJS = $(SRCS:.c=.o)

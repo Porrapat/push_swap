@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_utility_2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -12,38 +12,23 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+static bool	ft_is_digit(char c)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		i;
+	return (c >= '0' && c <= '9');
+}
 
-	if (argc <= 2)
+bool	ft_is_number(char *number)
+{
+	int	i;
+
+	i = 0;
+	if (number[0] == '-')
+		i = 1;
+	while (number[i] != 0)
 	{
-		printf("No not this\n");
-		return (0);
+		if (!ft_is_digit(number[i]))
+			return (false);
+		i++;
 	}
-	else
-	{
-		i = argc;
-		printf("i is %d\n", i);
-		stack_a = create_stack(i - 1);
-		stack_b = create_stack(i - 1);
-		while (i > 1)
-		{
-			if (ft_is_number(argv[i - 1])) 
-				push(stack_a, atoi(argv[i - 1]));
-			else
-			{
-				printf("Error\n");
-				return (0);
-			}
-			i--;
-		}
-		push_swap(stack_a, stack_b);
-		printf("------ Finished ! -------\n");
-		print_stack(stack_a);
-		print_stack(stack_b);
-	}
-	return (0);
+	return (true);
 }
