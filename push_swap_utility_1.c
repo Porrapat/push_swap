@@ -27,3 +27,8 @@ bool	ft_is_number(char *number)
 	}
 	return (true);
 }
+
+bool	ft_streq(const char *s1, const char *s2)
+{
+	return (!(ft_strncmp(s1, s2, ft_strlen(s2) + 1)));
+}

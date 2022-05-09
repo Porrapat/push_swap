@@ -28,6 +28,7 @@ typedef struct s_stack {
 }	t_stack;
 
 bool				ft_is_number(char *number);
+bool				ft_streq(const char *s1, const char *s2);
 
 t_stack				*create_stack(unsigned int capacity);
 int					is_full(t_stack *stack);
