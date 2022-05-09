@@ -81,7 +81,7 @@ static char	*get_to_return_line_from_main_str(char *main_str)
 		str[i] = main_str[i];
 		i++;
 	}
-	str[i] = '\0';
+	str[i - 1] = '\0';
 	return (str);
 }
 
