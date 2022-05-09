@@ -83,6 +83,12 @@ bool	is_sorted(t_stack *stack_a)
 	return (true);
 }
 
+void	free_stack(t_stack *stack)
+{
+	free(stack->array);
+	free(stack);
+}
+
 int	resolve_max_bits(t_stack *stack_a)
 {
 	int max_bits;
