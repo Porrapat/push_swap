@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include "libft/libft.h"
+# include "libft/get_next_line.h"
 
 typedef struct s_stack {
 	int				top;
@@ -25,9 +27,6 @@ typedef struct s_stack {
 	int				*array;
 }	t_stack;
 
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr(char *s);
-void				ft_putnbr_fd(int n, int fd);
 bool				ft_is_number(char *number);
 
 t_stack				*create_stack(unsigned int capacity);

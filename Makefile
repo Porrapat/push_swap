@@ -17,19 +17,15 @@ SRCS = push_swap.c \
 	push_swap_stack_1.c \
 	push_swap_stack_2.c \
 	push_swap_utility_1.c \
-	push_swap_utility_2.c \
 	main.c
 
 SRCS_CHECKER = checker.c \
-	get_next_line.c \
 	push_swap_instruction_1.c \
 	push_swap_instruction_2.c \
 	push_swap_instruction_3.c \
 	push_swap_stack_1.c \
 	push_swap_stack_2.c \
 	push_swap_utility_1.c \
-	push_swap_utility_2.c \
-	get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -41,20 +37,24 @@ CFLAGS			= -Wall -Werror -Wextra
 all: $(NAME) $(NAME_CHECKER)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	make -C libft
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME) -Ilibft -lft -Llibft
 
 $(NAME_CHECKER):
-	$(CC) $(CFLAGS) $(SRCS_CHECKER) -o $(NAME_CHECKER)
+	make -C libft
+	$(CC) $(CFLAGS) $(SRCS_CHECKER) -o $(NAME_CHECKER) -Ilibft -lft -Llibft
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)
+	make -C libft clean
 
 fclean:	clean
 	rm -rf $(NAME)
 	rm -rf $(NAME_CHECKER)
+	make -C libft fclean
 
 re:	fclean all
 

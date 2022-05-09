@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utility_2.c                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
-/*   Created: 2022/04/19 20:13:59 by ppetchda          #+#    #+#             */
-/*   Updated: 2022/04/19 20:18:35 by ppetchda         ###   ########.fr       */
+/*   Created: 2022/03/13 20:13:59 by ppetchda          #+#    #+#             */
+/*   Updated: 2022/03/13 20:18:35 by ppetchda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-static bool	ft_is_digit(char c)
-{
-	return (c >= '0' && c <= '9');
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft.h"
 
-bool	ft_is_number(char *number)
-{
-	int	i;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-	i = 0;
-	if (number[0] == '-')
-		i = 1;
-	while (number[i] != 0)
-	{
-		if (!ft_is_digit(number[i]))
-			return (false);
-		i++;
-	}
-	return (true);
-}
+size_t		ft_strlen(const char *s);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char		*ft_strmycat(char *s1, char *s2);
+char		*get_next_line(int fd);
+#endif

@@ -29,7 +29,7 @@ void	do_ra(t_stack *stack_a, bool print)
 		stack_a->array[0] = temp;
 	}
 	if (print)
-		ft_putstr("ra\n");
+		ft_putstr_fd("ra\n", 1);
 }
 
 void	do_rb(t_stack *stack_b, bool print)
@@ -49,7 +49,7 @@ void	do_rb(t_stack *stack_b, bool print)
 		stack_b->array[0] = temp;
 	}
 	if (print)
-		ft_putstr("rb\n");
+		ft_putstr_fd("rb\n", 1);
 }
 
 void	do_rr(t_stack *stack_a, t_stack *stack_b, bool print)
@@ -74,5 +74,5 @@ void	do_rr(t_stack *stack_a, t_stack *stack_b, bool print)
 		stack_b->array[0] = temp;
 	}
 	if (print)
-		ft_putstr("rr\n");
+		ft_putstr_fd("rr\n", 1);
 }
