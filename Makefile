@@ -22,6 +22,7 @@ SRCS = push_swap.c \
 SRCS_CHECKER = checker.c \
 	execute.c			\
 	get_line.c			\
+	push_swap.c			\
 	push_swap_instruction_1.c \
 	push_swap_instruction_2.c \
 	push_swap_instruction_3.c \
