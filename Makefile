@@ -22,6 +22,13 @@ SRCS = push_swap.c \
 
 SRCS_CHECKER = checker.c \
 	get_next_line.c \
+	push_swap_instruction_1.c \
+	push_swap_instruction_2.c \
+	push_swap_instruction_3.c \
+	push_swap_stack_1.c \
+	push_swap_stack_2.c \
+	push_swap_utility_1.c \
+	push_swap_utility_2.c \
 	get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
