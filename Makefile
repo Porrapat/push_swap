@@ -20,7 +20,9 @@ SRCS = push_swap.c \
 	push_swap_utility_2.c \
 	main.c
 
-SRCS_CHECKER = checker.c 
+SRCS_CHECKER = checker.c \
+	get_next_line.c \
+	get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -49,7 +51,7 @@ fclean:	clean
 
 re:	fclean all
 
-bonus: all
+bonus: all $(NAME_CHECKER)
 
 debug: 
 	$(CC) -g $(CFLAGS) $(SRCS)

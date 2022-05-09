@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		i = argc;
-		printf("i is %d\n", i);
+		// printf("i is %d\n", i);
 		stack_a = create_stack(i - 1);
 		stack_b = create_stack(i - 1);
 		while (i > 1)
@@ -41,9 +41,9 @@ int	main(int argc, char **argv)
 			i--;
 		}
 		push_swap(stack_a, stack_b);
-		printf("------ Finished ! -------\n");
-		print_stack(stack_a);
-		print_stack(stack_b);
+		// printf("------ Finished ! -------\n");
+		// print_stack(stack_a);
+		// print_stack(stack_b);
 	}
 	return (0);
 }
