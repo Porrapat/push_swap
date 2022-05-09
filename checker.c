@@ -5,12 +5,12 @@
 
 int main()
 {
-	int fd;
+	// int fd;
 	char *abc;
 
-	fd = open("test.txt", O_RDONLY);
+	// fd = open("test.txt", O_RDONLY);
 	abc = get_next_line(0);
 
-	// printf("%s", abc);
-	// write(1, abc, ft_strlen(abc));
+	printf("%s", abc);
+	write(1, abc, ft_strlen(abc));
 }

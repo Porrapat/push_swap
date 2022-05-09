@@ -44,6 +44,10 @@ int	main(int argc, char **argv)
 		// printf("------ Finished ! -------\n");
 		// print_stack(stack_a);
 		// print_stack(stack_b);
+		free(stack_a->array);
+		free(stack_a);
+		free(stack_b->array);
+		free(stack_b);
 	}
 	return (0);
 }
