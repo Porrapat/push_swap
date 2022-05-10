@@ -40,10 +40,8 @@ int	main(int argc, char **argv)
 			i--;
 		}
 		push_swap(stack_a, stack_b);
-		free(stack_a->array);
-		free(stack_a);
-		free(stack_b->array);
-		free(stack_b);
+		free_stack(stack_a);
+		free_stack(stack_b);
 	}
 	return (0);
 }
