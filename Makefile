@@ -11,12 +11,12 @@
 # **************************************************************************** #
 
 SRCS = srcs/push_swap/push_swap.c 				\
-	srcs/shared/push_swap_instruction_1.c 	\
-	srcs/shared/push_swap_instruction_2.c 	\
-	srcs/shared/push_swap_instruction_3.c 	\
+	srcs/shared/push_swap_instruction_1.c 		\
+	srcs/shared/push_swap_instruction_2.c 		\
+	srcs/shared/push_swap_instruction_3.c 		\
 	srcs/shared/push_swap_stack_1.c 			\
 	srcs/shared/push_swap_stack_2.c 			\
-	srcs/shared/push_swap_utility_1.c 		\
+	srcs/shared/push_swap_utility_1.c 			\
 	srcs/push_swap/main.c
 
 SRCS_CHECKER = srcs/checker/checker.c 			\
@@ -26,9 +26,9 @@ SRCS_CHECKER = srcs/checker/checker.c 			\
 	srcs/shared/push_swap_instruction_1.c		\
 	srcs/shared/push_swap_instruction_2.c		\
 	srcs/shared/push_swap_instruction_3.c		\
-	srcs/shared/push_swap_stack_1.c			\
-	srcs/shared/push_swap_stack_2.c			\
-	srcs/shared/push_swap_utility_1.c			
+	srcs/shared/push_swap_stack_1.c				\
+	srcs/shared/push_swap_stack_2.c				\
+	srcs/shared/push_swap_utility_1.c
 
 OBJS = $(SRCS:.c=.o)
 
