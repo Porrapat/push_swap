@@ -43,6 +43,25 @@ void	free_array(void **array)
 	free(array);
 }
 
+bool	is_sorted(t_stack *stack_a)
+{
+	int	i;
+
+	i = -1;
+	while (++i < stack_a->top)
+	{
+		if (stack_a->array[i + 1] > stack_a->array[i])
+			return (false);
+	}
+	return (true);
+}
+
+void	free_stack(t_stack *stack)
+{
+	free(stack->array);
+	free(stack);
+}
+
 void	message_and_exit(t_stack *stack, char **ops, int status)
 {
 	if (stack)
