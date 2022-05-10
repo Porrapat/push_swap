@@ -120,11 +120,11 @@ t_stack	*get_stack(int size, char **args)
 
 static void	_swap(int *a, int *b)
 {
-	int	aux;
+	int	temp;
 
-	aux = *b;
+	temp = *b;
 	*b = *a;
-	*a = aux;
+	*a = temp;
 }
 
 void	reverse_array(int *array, size_t size)

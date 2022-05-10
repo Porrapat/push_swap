@@ -17,7 +17,7 @@ SRCS = srcs/push_swap/push_swap.c 				\
 	srcs/shared/push_swap_stack_1.c 			\
 	srcs/shared/push_swap_stack_2.c 			\
 	srcs/shared/push_swap_utility_1.c 			\
-	srcs/push_swap/main.c
+	srcs/push_swap/radix_sort.c
 
 SRCS_CHECKER = srcs/checker/checker.c 			\
 	srcs/checker/execute.c						\
