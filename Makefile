@@ -10,25 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = srcs/push_swap/push_swap.c 				\
-	srcs/shared/push_swap_instruction_1.c 		\
-	srcs/shared/push_swap_instruction_2.c 		\
-	srcs/shared/push_swap_instruction_3.c 		\
-	srcs/shared/push_swap_stack_1.c 			\
-	srcs/shared/push_swap_stack_2.c 			\
-	srcs/shared/push_swap_utility_1.c 			\
+SRCS = srcs/push_swap/push_swap.c 		\
+	srcs/shared/instruction_1.c 		\
+	srcs/shared/instruction_2.c 		\
+	srcs/shared/instruction_3.c 		\
+	srcs/shared/stack_1.c 				\
+	srcs/shared/stack_2.c 				\
+	srcs/shared/utility_1.c 			\
 	srcs/push_swap/radix_sort.c
 
-SRCS_CHECKER = srcs/checker/checker.c 			\
-	srcs/checker/execute.c						\
-	srcs/checker/get_line.c						\
-	srcs/checker/get_stack.c					\
-	srcs/shared/push_swap_instruction_1.c		\
-	srcs/shared/push_swap_instruction_2.c		\
-	srcs/shared/push_swap_instruction_3.c		\
-	srcs/shared/push_swap_stack_1.c				\
-	srcs/shared/push_swap_stack_2.c				\
-	srcs/shared/push_swap_utility_1.c
+SRCS_CHECKER = srcs/checker/checker.c 		\
+	srcs/checker/execute.c					\
+	srcs/checker/get_line.c					\
+	srcs/checker/get_stack.c				\
+	srcs/shared/instruction_1.c				\
+	srcs/shared/instruction_2.c				\
+	srcs/shared/instruction_3.c				\
+	srcs/shared/stack_1.c					\
+	srcs/shared/stack_2.c					\
+	srcs/shared/utility_1.c
 
 OBJS = $(SRCS:.c=.o)
 
