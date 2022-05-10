@@ -21,16 +21,6 @@ bool	validate_int(char *elem)
 	return (!is_int);
 }
 
-void	insert_sorted(int n, int *data, int size)
-{
-	int	i;
-
-	i = size;
-	while (--i >= 0 && data[i] > n)
-		data[i + 1] = data[i];
-	data[i + 1] = n;
-}
-
 bool	already_exists(int n, t_stack *stack)
 {
 	int	i;
