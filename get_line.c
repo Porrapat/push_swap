@@ -69,15 +69,10 @@ int	get_instructions(char ***instructions)
 	i = 0;
 	status = 0;
 	op = get_next_line(STDIN_FILENO);
-	// printf("op is %s\n", op);
 	while (!status && op != NULL)
 	{
-		// printf("inside op is %s\n", op);
 		if (invalid_instruction(op))
-		{
 			status = 1;
-			// printf("abc is %s\n", op);
-		}
 		else
 		{
 			buffer[i++] = op;
