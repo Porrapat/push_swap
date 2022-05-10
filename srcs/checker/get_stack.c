@@ -1,5 +1,4 @@
-
-#include "push_swap.h"
+#include "checker.h"
 
 bool	validate_int(char *elem)
 {

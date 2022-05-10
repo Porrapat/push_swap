@@ -10,26 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = push_swap.c \
-	push_swap_instruction_1.c \
-	push_swap_instruction_2.c \
-	push_swap_instruction_3.c \
-	push_swap_stack_1.c \
-	push_swap_stack_2.c \
-	push_swap_utility_1.c \
-	main.c
+SRCS = srcs/push_swap/push_swap.c 				\
+	srcs/shared/push_swap_instruction_1.c 	\
+	srcs/shared/push_swap_instruction_2.c 	\
+	srcs/shared/push_swap_instruction_3.c 	\
+	srcs/shared/push_swap_stack_1.c 			\
+	srcs/shared/push_swap_stack_2.c 			\
+	srcs/shared/push_swap_utility_1.c 		\
+	srcs/push_swap/main.c
 
-SRCS_CHECKER = checker.c \
-	execute.c			\
-	get_line.c			\
-	push_swap.c			\
-	get_stack.c			\
-	push_swap_instruction_1.c \
-	push_swap_instruction_2.c \
-	push_swap_instruction_3.c \
-	push_swap_stack_1.c \
-	push_swap_stack_2.c \
-	push_swap_utility_1.c \
+SRCS_CHECKER = srcs/checker/checker.c 			\
+	srcs/checker/execute.c						\
+	srcs/checker/get_line.c						\
+	srcs/checker/get_stack.c					\
+	srcs/shared/push_swap_instruction_1.c		\
+	srcs/shared/push_swap_instruction_2.c		\
+	srcs/shared/push_swap_instruction_3.c		\
+	srcs/shared/push_swap_stack_1.c			\
+	srcs/shared/push_swap_stack_2.c			\
+	srcs/shared/push_swap_utility_1.c			
 
 OBJS = $(SRCS:.c=.o)
 
@@ -42,11 +41,11 @@ all: $(NAME) $(NAME_CHECKER)
 
 $(NAME):
 	make -C libft
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME) -Ilibft -lft -Llibft
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME) -Ilibft -lft -Llibft -Isrcs/include
 
 $(NAME_CHECKER):
 	make -C libft
-	$(CC) $(CFLAGS) $(SRCS_CHECKER) -o $(NAME_CHECKER) -Ilibft -lft -Llibft
+	$(CC) $(CFLAGS) $(SRCS_CHECKER) -o $(NAME_CHECKER) -Ilibft -lft -Llibft -Isrcs/include
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

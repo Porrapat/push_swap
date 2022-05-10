@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_stack_2.c                                :+:      :+:    :+:   */
+/*   push_swap_stack_1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -10,39 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "shared.h"
 
-void	push(t_stack *stack, int item)
+t_stack	*create_stack(unsigned int capacity)
 {
-	if (is_full(stack))
-		return ;
-	stack->array[++stack->top] = item;
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	stack->capacity = capacity;
+	stack->top = -1;
+	stack->array = (int *)malloc(stack->capacity * sizeof(int));
+	return (stack);
 }
 
-int	pop(t_stack *stack)
+int	is_full(t_stack *stack)
 {
-	if (is_empty(stack))
-		return (INT_MIN);
-	return (stack->array[stack->top--]);
+	return (stack->top == (int)stack->capacity - 1);
 }
 
-int	peek(t_stack *stack)
+int	is_empty(t_stack *stack)
 {
-	if (is_empty(stack))
-		return (INT_MIN);
-	return (stack->array[stack->top]);
-}
-
-void	print_stack(t_stack *stack)
-{
-	int	i;
-
-	i = stack->top;
-	printf("Top is %d\n", i);
-	while (i >= 0)
-	{
-		printf("%d\n", stack->array[i]);
-		i--;
-	}
-	printf("-----------\n");
+	return (stack->top == -1);
 }
