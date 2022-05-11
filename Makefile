@@ -17,7 +17,8 @@ SRCS = srcs/push_swap/push_swap.c 		\
 	srcs/shared/stack_1.c 				\
 	srcs/shared/stack_2.c 				\
 	srcs/shared/utility_1.c 			\
-	srcs/push_swap/radix_sort.c
+	srcs/push_swap/radix_sort.c			\
+	srcs/push_swap/normal_sort.c		\
 
 SRCS_CHECKER = srcs/checker/checker.c 		\
 	srcs/checker/execute.c					\
@@ -64,6 +65,6 @@ re:	fclean all
 bonus: all $(NAME_CHECKER)
 
 debug: 
-	$(CC) -g $(CFLAGS) $(SRCS)
+	$(CC) -g $(CFLAGS) $(SRCS) -o $(NAME) -Ilibft -lft -Llibft -Isrcs/include
 
 .PHONY: all clean fclean re bonus debug

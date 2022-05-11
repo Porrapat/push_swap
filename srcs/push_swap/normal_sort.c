@@ -14,5 +14,15 @@
 
 void push_swap_normal_sort(t_stack *stack_a, t_stack *stack_b)
 {
-
+	while (!is_empty(stack_a))
+	{
+		do_pb(stack_a, stack_b, 1);
+		while (peek(stack_b) < stack_b->array[stack_b->top - 1])
+		{
+			do_sb(stack_b, 1);
+			do_pa(stack_a, stack_b, 1);
+		}
+	}
+	while (!is_empty(stack_b))
+		do_pa(stack_a, stack_b, 1);
 }
