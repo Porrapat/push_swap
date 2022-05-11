@@ -59,7 +59,7 @@ static void	resolve_negative_value(t_stack *stack_a)
 	}
 }
 
-void	push_swap(t_stack *stack_a, t_stack *stack_b)
+void	push_swap_radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size;
 	int	max_bits;
