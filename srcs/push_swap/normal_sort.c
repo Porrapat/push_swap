@@ -12,12 +12,15 @@
 
 #include "push_swap.h"
 
-void push_swap_normal_sort(t_stack *stack_a, t_stack *stack_b)
+void	push_swap_normal_sort(t_stack *stack_a, t_stack *stack_b)
 {
+	int	less_than;
+
 	while (!is_empty(stack_a))
 	{
 		do_pb(stack_a, stack_b, 1);
-		while (stack_b->top > 0 && peek(stack_b) < stack_b->array[stack_b->top - 1])
+		less_than = peek(stack_b) < stack_b->array[stack_b->top - 1];
+		while (stack_b->top > 0 && less_than)
 		{
 			do_sb(stack_b, 1);
 			do_pa(stack_a, stack_b, 1);
