@@ -65,6 +65,7 @@ re:	fclean all
 bonus: all $(NAME_CHECKER)
 
 debug: 
+	make -C libft
 	$(CC) -g $(CFLAGS) $(SRCS) -o $(NAME) -Ilibft -lft -Llibft -Isrcs/include
 
 .PHONY: all clean fclean re bonus debug
