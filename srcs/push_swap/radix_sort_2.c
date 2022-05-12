@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 int	count_bits(int n)
 {
 	int count = 0;
@@ -21,6 +23,7 @@ int	count_bits(int n)
 	return count;
 }
 
+/*
 bool	is_sorted(t_stack *stack_a)
 {
 	int	i;
@@ -33,6 +36,7 @@ bool	is_sorted(t_stack *stack_a)
 	}
 	return (true);
 }
+*/
 
 int	resolve_max_bits(t_stack *stack_a)
 {
@@ -49,4 +53,49 @@ int	resolve_max_bits(t_stack *stack_a)
 		i--;
 	}
 	return (max_bits);
+}
+
+void	index_number(t_stack *stack_a)
+{
+	int i;
+	int j;
+	int min;
+	int min_index;
+	int *temp;
+
+	temp = (int *)malloc(sizeof(int) * stack_a->capacity);
+	j = 0;
+	while(j < (int)stack_a->capacity)
+	{
+		temp[j] = -1;
+		j++;
+	}
+	i = 0;
+	while (i < (int)stack_a->capacity)
+	{
+		j = 0;
+		min = INT_MAX;
+		while(j <= stack_a->top)
+		{
+			if ((stack_a->array[j] < min) && temp[j] == -1)
+			{
+				min = stack_a->array[j];
+				min_index = j;
+			}
+			j++;
+		}
+		temp[min_index] = i;
+		i++;
+	}
+	// printf("temp is %d %d %d %d %d\n", temp[4], temp[3], temp[2], temp[1], temp[0]);
+
+	i = 0;
+	while(i < (int)stack_a->capacity)
+	{
+		stack_a->array[i] = temp[i];
+		i++;
+	}
+	free(temp);
+	// print_stack(stack_a);
+	// printf("min is %d\n", min);
 }

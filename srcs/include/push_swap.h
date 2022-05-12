@@ -15,6 +15,11 @@
 
 #include "shared.h"
 
+int			count_bits(int n);
+bool		is_sorted(t_stack *stack_a);
+int			resolve_max_bits(t_stack *stack_a);
+void		index_number(t_stack *stack_a);
+
 void		push_swap_normal_sort(t_stack *stack_a, t_stack *stack_b);
 void		push_swap_radix_sort(t_stack *stack_a, t_stack *stack_b);
 
