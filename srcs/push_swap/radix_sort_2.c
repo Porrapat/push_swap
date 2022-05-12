@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   radix_sort_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -10,46 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void input_push_swap(int argc, char **argv, t_stack *stack_a)
+int	count_bits(int n)
 {
-	int		i;
-
-	i = argc;
-	while (i > 1)
+	int count = 0;
+	while (n)
 	{
-		if (ft_is_number(argv[i - 1])) 
-			push(stack_a, atoi(argv[i - 1]));
-		else
-		{
-			printf("Error\n");
-			exit (0);
-		}
-		i--;
+		count++;
+		n >>= 1;
 	}
+	return count;
 }
 
-int	main(int argc, char **argv)
+bool	is_sorted(t_stack *stack_a)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int	i;
 
-	if (argc <= 2)
+	i = -1;
+	while (++i < stack_a->top)
 	{
-		printf("Error\n");
-		return (0);
+		if (stack_a->array[i + 1] > stack_a->array[i])
+			return (false);
 	}
-	else
+	return (true);
+}
+
+int	resolve_max_bits(t_stack *stack_a)
+{
+	int max_bits;
+	int i;
+	int current_bit;
+
+	i = stack_a->top;
+	while (i >= 0)
 	{
-		stack_a = create_stack(argc - 1);
-		input_push_swap(argc, argv, stack_a);
-		stack_b = create_stack(stack_a->capacity);
-		push_swap_radix_sort(stack_a, stack_b);
-		// push_swap_normal_sort(stack_a, stack_b);
-		// print_stack(stack_a);
-		free_stack(stack_a);
-		free_stack(stack_b);
+		current_bit = count_bits(stack_a->array[i]);
+		if (current_bit > max_bits)
+			max_bits = current_bit;
+		i--;
 	}
-	return (0);
+	return (max_bits);
 }
