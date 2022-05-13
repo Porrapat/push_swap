@@ -32,6 +32,7 @@ int	resolve_max_bits(t_stack *stack_a)
 	int	current_bit;
 
 	i = stack_a->top;
+	max_bits = 0;
 	while (i >= 0)
 	{
 		current_bit = count_bits(stack_a->array[i]);

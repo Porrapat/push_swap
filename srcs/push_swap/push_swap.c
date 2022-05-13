@@ -42,13 +42,11 @@ void	push_swap_input(int argc, char **argv)
 		push_swap_sort_two(stack_a);
 	else if (stack_a->capacity == 3)
 		push_swap_sort_three(stack_a);
-	else if (stack_a->capacity > 3)
+	else
 	{
 		index_number(stack_a);
 		push_swap_radix_sort(stack_a, stack_b);
 	}
-	else
-		push_swap_normal_sort(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
