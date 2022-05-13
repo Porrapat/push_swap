@@ -45,10 +45,13 @@ int	main(int argc, char **argv)
 		stack_a = create_stack(argc - 1);
 		input_push_swap(argc, argv, stack_a);
 		stack_b = create_stack(stack_a->capacity);
-		index_number(stack_a);
-		push_swap_radix_sort(stack_a, stack_b);
-		// push_swap_normal_sort(stack_a, stack_b);
-		// print_stack(stack_a);
+		if (stack_a->capacity > 3)
+		{
+			index_number(stack_a);
+			push_swap_radix_sort(stack_a, stack_b);
+		}
+		else
+			push_swap_normal_sort(stack_a, stack_b);
 		free_stack(stack_a);
 		free_stack(stack_b);
 	}
