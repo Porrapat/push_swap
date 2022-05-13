@@ -20,6 +20,7 @@ SRCS = srcs/push_swap/push_swap.c 		\
 	srcs/shared/utility_2.c 			\
 	srcs/push_swap/radix_sort.c			\
 	srcs/push_swap/radix_sort_2.c		\
+	srcs/push_swap/radix_sort_3.c		\
 	srcs/push_swap/normal_sort.c		\
 
 SRCS_CHECKER = srcs/checker/checker.c 		\

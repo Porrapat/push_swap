@@ -12,63 +12,32 @@
 
 #include "push_swap.h"
 
-void	reset_to_minus(t_stack *stack_a, int *temp)
+int	count_bits(int n)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (i < (int)stack_a->capacity)
+	count = 0;
+	while (n)
 	{
-		temp[i] = -1;
-		i++;
+		count++;
+		n >>= 1;
 	}
+	return (count);
 }
 
-void	copy_from_temp(t_stack *stack_a, int *temp)
+int	resolve_max_bits(t_stack *stack_a)
 {
+	int	max_bits;
 	int	i;
+	int	current_bit;
 
-	i = 0;
-	while (i < (int)stack_a->capacity)
+	i = stack_a->top;
+	while (i >= 0)
 	{
-		stack_a->array[i] = temp[i];
-		i++;
+		current_bit = count_bits(stack_a->array[i]);
+		if (current_bit > max_bits)
+			max_bits = current_bit;
+		i--;
 	}
-}
-
-void	main_index_number(t_stack *stack_a, int *temp)
-{
-	int	i;
-	int	j;
-	int	min;
-	int	min_index;
-
-	i = 0;
-	while (i < (int)stack_a->capacity)
-	{
-		j = 0;
-		min = INT_MAX;
-		while (j <= stack_a->top)
-		{
-			if ((stack_a->array[j] < min) && temp[j] == -1)
-			{
-				min = stack_a->array[j];
-				min_index = j;
-			}
-			j++;
-		}
-		temp[min_index] = i;
-		i++;
-	}
-}
-
-void	index_number(t_stack *stack_a)
-{
-	int	*temp;
-
-	temp = (int *)malloc(sizeof(int) * stack_a->capacity);
-	reset_to_minus(stack_a, temp);
-	main_index_number(stack_a, temp);
-	copy_from_temp(stack_a, temp);
-	free(temp);
+	return (max_bits);
 }
