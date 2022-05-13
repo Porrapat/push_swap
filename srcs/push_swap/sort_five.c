@@ -38,6 +38,14 @@ static void	push_first_number(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+static void	do_task_first(t_stack *stack_a, t_stack *stack_b)
+{
+	do_ra(stack_a, 1);
+	do_pa(stack_a, stack_b, 1);
+	do_sa(stack_a, 1);
+	do_rra(stack_a, 1);
+}
+
 static void	push_second_number(t_stack *stack_a, t_stack *stack_b)
 {
 	int	num;
@@ -51,12 +59,7 @@ static void	push_second_number(t_stack *stack_a, t_stack *stack_b)
 		do_sa(stack_a, 1);
 	}
 	else if (num > stack_a->array[2] && num < stack_a->array[1])
-	{
-		do_ra(stack_a, 1);
-		do_pa(stack_a, stack_b, 1);
-		do_sa(stack_a, 1);
-		do_rra(stack_a, 1);
-	}
+		do_task_first(stack_a, stack_b);
 	else if (num > stack_a->array[1] && num < stack_a->array[0])
 	{
 		do_rra(stack_a, 1);
