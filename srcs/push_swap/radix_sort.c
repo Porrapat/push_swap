@@ -67,7 +67,6 @@ void	push_swap_radix_sort(t_stack *stack_a, t_stack *stack_b)
 	int	j;
 
 	i = 0;
-	// print_stack(stack_a);
 	max_bits = resolve_max_bits(stack_a);
 	size = stack_a->top + 1;
 	while (i < max_bits)

@@ -17,6 +17,7 @@ SRCS = srcs/push_swap/push_swap.c 		\
 	srcs/shared/stack_1.c 				\
 	srcs/shared/stack_2.c 				\
 	srcs/shared/utility_1.c 			\
+	srcs/shared/utility_2.c 			\
 	srcs/push_swap/radix_sort.c			\
 	srcs/push_swap/radix_sort_2.c		\
 	srcs/push_swap/normal_sort.c		\
@@ -30,7 +31,8 @@ SRCS_CHECKER = srcs/checker/checker.c 		\
 	srcs/shared/instruction_3.c				\
 	srcs/shared/stack_1.c					\
 	srcs/shared/stack_2.c					\
-	srcs/shared/utility_1.c
+	srcs/shared/utility_1.c					\
+	srcs/shared/utility_2.c
 
 OBJS = $(SRCS:.c=.o)
 

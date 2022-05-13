@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "shared.h"
+# include "shared.h"
 
 int			count_bits(int n);
 bool		is_sorted(t_stack *stack_a);

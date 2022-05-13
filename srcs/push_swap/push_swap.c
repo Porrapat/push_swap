@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void input_push_swap(int argc, char **argv, t_stack *stack_a)
+void	input_push_swap(int argc, char **argv, t_stack *stack_a)
 {
 	int		i;
 
 	i = argc;
 	while (i > 1)
 	{
-		if (ft_is_number(argv[i - 1])) 
+		if (ft_is_number(argv[i - 1]))
 			push(stack_a, atoi(argv[i - 1]));
 		else
 		{

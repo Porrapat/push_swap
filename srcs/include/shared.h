@@ -37,6 +37,7 @@ void				print_stack(t_stack *stack_a);
 
 bool				ft_is_number(char *number);
 void				free_stack(t_stack *stack);
+void				free_array(void **array);
 
 void				do_sa(t_stack *stack_a, bool print);
 void				do_sb(t_stack *stack_b, bool print);

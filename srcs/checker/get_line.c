@@ -59,6 +59,16 @@ static int	heap_set(char ***instructions, char **buffer, int i)
 	return (0);
 }
 
+void	instruction_buffer_size(char ***instructions, char **buffer, int *i)
+{
+	if (*i == INSTRUCTIONS_BUFFER_SIZE)
+	{
+		heap_set(instructions, buffer, *i);
+		ft_bzero(buffer, INSTRUCTIONS_BUFFER_SIZE);
+		*i = 0;
+	}
+}
+
 int	get_instructions(char ***instructions)
 {
 	int		i;
@@ -76,12 +86,7 @@ int	get_instructions(char ***instructions)
 		else
 		{
 			buffer[i++] = op;
-			if (i == INSTRUCTIONS_BUFFER_SIZE)
-			{
-				heap_set(instructions, buffer, i);
-				ft_bzero(buffer, INSTRUCTIONS_BUFFER_SIZE);
-				i = 0;
-			}
+			instruction_buffer_size(instructions, buffer, &i);
 		}
 		op = get_next_line(STDIN_FILENO);
 	}

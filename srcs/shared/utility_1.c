@@ -33,16 +33,6 @@ bool	ft_streq(const char *s1, const char *s2)
 	return (!(ft_strncmp(s1, s2, ft_strlen(s2) + 1)));
 }
 
-void	free_array(void **array)
-{
-	size_t	i;
-
-	i = 0;
-	while (array[i])
-		free(array[i++]);
-	free(array);
-}
-
 bool	is_sorted(t_stack *stack_a)
 {
 	int	i;
@@ -54,12 +44,6 @@ bool	is_sorted(t_stack *stack_a)
 			return (false);
 	}
 	return (true);
-}
-
-void	free_stack(t_stack *stack)
-{
-	free(stack->array);
-	free(stack);
 }
 
 void	message_and_exit(t_stack *stack, char **ops, int status)
