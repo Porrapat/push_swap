@@ -38,11 +38,14 @@ void	print_stack(t_stack *stack)
 	int	i;
 
 	i = stack->top;
-	printf("Top is %d\n", i);
+	ft_putstr_fd("Top is ", 1);
+	ft_putnbr_fd(i, 1);
+	ft_putstr_fd("\n", 1);
 	while (i >= 0)
 	{
-		printf("%d\n", stack->array[i]);
+		ft_putnbr_fd(stack->array[i], 1);
+		ft_putstr_fd("\n", 1);
 		i--;
 	}
-	printf("-----------\n");
+	ft_putstr_fd("-----------\n", 1);
 }
