@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -10,19 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "shared.h"
+void	push_swap_sort_three(t_stack *stack_a)
+{
+	int	zero;
+	int	one;
+	int	two;
 
-int			count_bits(int n);
-bool		is_sorted(t_stack *stack_a);
-int			resolve_max_bits(t_stack *stack_a);
-void		index_number(t_stack *stack_a);
-
-void		push_swap_sort_two(t_stack *stack_a);
-void		push_swap_sort_three(t_stack *stack_a);
-void		push_swap_normal_sort(t_stack *stack_a, t_stack *stack_b);
-void		push_swap_radix_sort(t_stack *stack_a, t_stack *stack_b);
-
-#endif
+	zero = stack_a->array[0];
+	one = stack_a->array[1];
+	two = stack_a->array[2];
+	if (one > zero && two > one)
+	{
+		do_sa(stack_a, 1);
+		do_rra(stack_a, 1);
+	}
+	else if (zero < one && zero > two)
+	{
+		do_sa(stack_a, 1);
+		do_ra(stack_a, 1);
+	}
+	else if (zero > one && zero < two)
+		do_ra(stack_a, 1);
+	else if (zero < one && one > two)
+		do_rra(stack_a, 1);
+	else if (zero > one && one < two)
+		do_sa(stack_a, 1);
+}
