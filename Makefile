@@ -26,6 +26,7 @@ SRCS_CHECKER = srcs/checker/checker.c 		\
 	srcs/checker/execute.c					\
 	srcs/checker/get_line.c					\
 	srcs/checker/get_stack.c				\
+	srcs/checker/get_stack_2.c				\
 	srcs/shared/instruction_1.c				\
 	srcs/shared/instruction_2.c				\
 	srcs/shared/instruction_3.c				\
