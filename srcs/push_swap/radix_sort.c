@@ -29,36 +29,6 @@ static void	radix_comparison(t_stack *stack_a, t_stack *stack_b, int i)
 		do_pb(stack_a, stack_b, 1);
 }
 
-static int	count_negative(t_stack *stack_a)
-{
-	int	i;
-	int	num;
-
-	i = 0;
-	num = 0;
-	while (i <= stack_a->top)
-	{
-		if (stack_a->array[i] < 0)
-			num++;
-		i++;
-	}
-	return (num);
-}
-
-static void	resolve_negative_value(t_stack *stack_a)
-{
-	int		negative_num;
-	int		i;
-
-	negative_num = count_negative(stack_a);
-	i = 0;
-	while (i < negative_num)
-	{
-		do_rra(stack_a, 1);
-		i++;
-	}
-}
-
 void	push_swap_radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size;
@@ -80,5 +50,4 @@ void	push_swap_radix_sort(t_stack *stack_a, t_stack *stack_b)
 		push_out_of_stack(stack_a, stack_b);
 		i++;
 	}
-	resolve_negative_value(stack_a);
 }

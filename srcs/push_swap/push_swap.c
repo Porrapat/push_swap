@@ -42,6 +42,8 @@ void	push_swap_input(int argc, char **argv)
 		push_swap_sort_two(stack_a);
 	else if (stack_a->capacity == 3)
 		push_swap_sort_three(stack_a);
+	else if (stack_a->capacity == 5)
+		push_swap_normal_sort(stack_a, stack_b);
 	else
 	{
 		index_number(stack_a);
