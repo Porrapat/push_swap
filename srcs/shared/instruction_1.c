@@ -23,7 +23,7 @@ void	do_sa(t_stack *stack_a, bool print)
 		stack_a->array[stack_a->top - 1] = temp;
 	}
 	if (print)
-		ft_putstr_fd("sa\n", 1);
+		ft_putstr_fd("sa\n", STDOUT_FILENO);
 }
 
 void	do_sb(t_stack *stack_b, bool print)
@@ -37,7 +37,7 @@ void	do_sb(t_stack *stack_b, bool print)
 		stack_b->array[stack_b->top - 1] = temp;
 	}
 	if (print)
-		ft_putstr_fd("sb\n", 1);
+		ft_putstr_fd("sb\n", STDOUT_FILENO);
 }
 
 void	do_ss(t_stack *stack_a, t_stack *stack_b, bool print)
@@ -57,7 +57,7 @@ void	do_ss(t_stack *stack_a, t_stack *stack_b, bool print)
 		stack_b->array[stack_b->top - 1] = temp;
 	}
 	if (print)
-		ft_putstr_fd("ss\n", 1);
+		ft_putstr_fd("ss\n", STDOUT_FILENO);
 }
 
 void	do_pa(t_stack *stack_a, t_stack *stack_b, bool print)
@@ -65,7 +65,7 @@ void	do_pa(t_stack *stack_a, t_stack *stack_b, bool print)
 	if (!is_empty(stack_b))
 		push(stack_a, pop(stack_b));
 	if (print)
-		ft_putstr_fd("pa\n", 1);
+		ft_putstr_fd("pa\n", STDOUT_FILENO);
 }
 
 void	do_pb(t_stack *stack_a, t_stack *stack_b, bool print)
@@ -73,5 +73,5 @@ void	do_pb(t_stack *stack_a, t_stack *stack_b, bool print)
 	if (!is_empty(stack_a))
 		push(stack_b, pop(stack_a));
 	if (print)
-		ft_putstr_fd("pb\n", 1);
+		ft_putstr_fd("pb\n", STDOUT_FILENO);
 }

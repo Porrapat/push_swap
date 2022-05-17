@@ -24,7 +24,7 @@ void	input_push_swap(int argc, char **argv, t_stack *stack_a)
 			push(stack_a, atoi(argv[i - 1]));
 		else
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Error\n", STDERR_FILENO);
 			exit (0);
 		}
 		i--;
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 {
 	if (argc <= 2)
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 		return (0);
 	}
 	else
