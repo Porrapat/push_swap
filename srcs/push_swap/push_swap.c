@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+bool	ft_already_exists(int n, t_stack *stack_a)
+{
+	int	i;
+
+	i = stack_a->top;
+	while (i >= 0)
+	{
+		if (stack_a->array[i] == n)
+			return (true);
+		i--;
+	}
+	return (false);
+}
+
 void	input_push_swap(int argc, char **argv, t_stack *stack_a)
 {
 	int		i;
@@ -19,7 +33,8 @@ void	input_push_swap(int argc, char **argv, t_stack *stack_a)
 	i = argc;
 	while (i > 1)
 	{
-		if (ft_is_number(argv[i - 1]))
+		if (ft_is_number(argv[i - 1])
+			&& !ft_already_exists(atoi(argv[i - 1]), stack_a))
 			push(stack_a, atoi(argv[i - 1]));
 		else
 		{
