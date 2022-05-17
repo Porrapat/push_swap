@@ -16,7 +16,6 @@
 # include "shared.h"
 
 int			count_bits(int n);
-bool		is_sorted(t_stack *stack_a);
 int			resolve_max_bits(t_stack *stack_a);
 void		index_number(t_stack *stack_a);
 
