@@ -12,40 +12,6 @@
 
 #include "checker.h"
 
-bool	validate_int(char *elem)
-{
-	bool			is_int;
-	unsigned int	i;
-	unsigned int	cm;
-
-	i = 0;
-	cm = 0;
-	is_int = true;
-	while (elem[i] && is_int)
-	{
-		if (elem[i] == '-' && cm < 1)
-			cm++;
-		else if (!ft_isdigit(elem[i]))
-			is_int = false;
-		i++;
-	}
-	return (!is_int);
-}
-
-bool	already_exists(int n, t_stack *stack)
-{
-	int	i;
-
-	i = stack->top;
-	while (i >= 0)
-	{
-		if (stack->array[i] == n)
-			return (true);
-		i--;
-	}
-	return (false);
-}
-
 bool	atoiv(const char *str, int *n)
 {
 	int		signal;
@@ -81,11 +47,11 @@ int	fill_element(t_stack *stack, char *arg)
 	array = ft_split(arg, ' ');
 	while (array[j] && !status)
 	{
-		if (validate_int(array[j]))
+		if (!ft_is_number(array[j]))
 			status = 1;
 		if (atoiv(array[j], &n))
 			status = 2;
-		if (already_exists(n, stack))
+		if (ft_already_exists(n, stack))
 			status = 3;
 		else
 			stack->array[++stack->top] = n;
@@ -116,4 +82,14 @@ t_stack	*get_stack(int size, char **args)
 	}
 	reverse_array(stack->array, stack->top + 1);
 	return (stack);
+}
+
+void	message_and_exit(t_stack *stack, char **ops, int status)
+{
+	if (stack)
+		free_stack(stack);
+	if (ops)
+		free_array((void **)ops);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(status);
 }

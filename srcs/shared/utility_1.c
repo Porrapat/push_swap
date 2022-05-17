@@ -28,6 +28,20 @@ bool	ft_is_number(char *number)
 	return (true);
 }
 
+bool	ft_already_exists(int n, t_stack *stack_a)
+{
+	int	i;
+
+	i = stack_a->top;
+	while (i >= 0)
+	{
+		if (stack_a->array[i] == n)
+			return (true);
+		i--;
+	}
+	return (false);
+}
+
 bool	ft_streq(const char *s1, const char *s2)
 {
 	return (!(ft_strncmp(s1, s2, ft_strlen(s2) + 1)));
@@ -44,14 +58,4 @@ bool	is_sorted(t_stack *stack_a)
 			return (false);
 	}
 	return (true);
-}
-
-void	message_and_exit(t_stack *stack, char **ops, int status)
-{
-	if (stack)
-		free_stack(stack);
-	if (ops)
-		free_array((void **)ops);
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	exit(status);
 }

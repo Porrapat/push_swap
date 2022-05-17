@@ -35,6 +35,7 @@ int					peek(t_stack *stack);
 void				print_stack(t_stack *stack_a);
 
 bool				ft_is_number(char *number);
+bool				ft_already_exists(int n, t_stack *stack_a);
 void				free_stack(t_stack *stack);
 void				free_array(void **array);
 
