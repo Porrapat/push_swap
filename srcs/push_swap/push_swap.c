@@ -57,8 +57,24 @@ void	input_push_swap_2(int num, char **temp, t_stack *stack_a)
 	}
 }
 
-void	input_stack_a(t_stack *stack_a, int argc, char **argv)
+void	main_sort(t_stack *stack_a, t_stack *stack_b)
 {
+	if (stack_a->capacity == 2)
+		push_swap_sort_two(stack_a);
+	else if (stack_a->capacity == 3)
+		push_swap_sort_three(stack_a);
+	else if (stack_a->capacity == 5)
+		push_swap_sort_five(stack_a, stack_b);
+	else
+		push_swap_radix_sort(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
+}
+
+void	push_swap_input(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	char	**temp;
 	int		i;
 
@@ -76,25 +92,8 @@ void	input_stack_a(t_stack *stack_a, int argc, char **argv)
 		stack_a = create_stack(argc - 1);
 		input_push_swap(argc, argv, stack_a);
 	}
-}
-
-void	push_swap_input(int argc, char **argv)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	input_stack_a(stack_a, argc, argv);
 	stack_b = create_stack(stack_a->capacity);
-	if (stack_a->capacity == 2)
-		push_swap_sort_two(stack_a);
-	else if (stack_a->capacity == 3)
-		push_swap_sort_three(stack_a);
-	else if (stack_a->capacity == 5)
-		push_swap_sort_five(stack_a, stack_b);
-	else
-		push_swap_radix_sort(stack_a, stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	main_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
