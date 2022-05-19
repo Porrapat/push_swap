@@ -17,6 +17,8 @@ bool	ft_is_number(char *number)
 	int	i;
 
 	i = 0;
+	if (number[0] == '-' && number[1] == '\0')
+		return (false);
 	if (number[0] == '-')
 		i = 1;
 	while (number[i] != 0)

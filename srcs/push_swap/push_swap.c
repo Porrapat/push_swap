@@ -86,6 +86,7 @@ void	push_swap_input(int argc, char **argv)
 			i++;
 		stack_a = create_stack(i);
 		input_push_swap_2(i, temp, stack_a);
+		free_array((void **)temp);
 	}
 	else
 	{
