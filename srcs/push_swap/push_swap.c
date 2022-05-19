@@ -11,15 +11,19 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	input_push_swap(int argc, char **argv, t_stack *stack_a)
 {
 	int		i;
+	int		n;
 
 	i = argc;
+	n = 0;
 	while (i > 1)
 	{
 		if (ft_is_number(argv[i - 1])
+			&& !atoiv(argv[i - 1], &n)
 			&& !ft_already_exists(atoi(argv[i - 1]), stack_a))
 			push(stack_a, atoi(argv[i - 1]));
 		else
@@ -31,13 +35,55 @@ void	input_push_swap(int argc, char **argv, t_stack *stack_a)
 	}
 }
 
+void	input_push_swap_2(int num, char **temp, t_stack *stack_a)
+{
+	int		i;
+	int		n;
+
+	i = num - 1;
+	n = 0;
+	while (i >= 0)
+	{
+		if (ft_is_number(temp[i])
+			&& !atoiv(temp[i], &n)
+			&& !ft_already_exists(atoi(temp[i]), stack_a))
+			push(stack_a, atoi(temp[i]));
+		else
+		{
+			ft_putstr_fd("Error\n", STDERR_FILENO);
+			exit (0);
+		}
+		i--;
+	}
+}
+
+void	input_stack_a(t_stack *stack_a, int argc, char **argv)
+{
+	char	**temp;
+	int		i;
+
+	if (argc == 2)
+	{
+		i = 0;
+		temp = ft_split(argv[1], ' ');
+		while (temp[i] != 0)
+			i++;
+		stack_a = create_stack(i);
+		input_push_swap_2(i, temp, stack_a);
+	}
+	else
+	{
+		stack_a = create_stack(argc - 1);
+		input_push_swap(argc, argv, stack_a);
+	}
+}
+
 void	push_swap_input(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	stack_a = create_stack(argc - 1);
-	input_push_swap(argc, argv, stack_a);
+	input_stack_a(stack_a, argc, argv);
 	stack_b = create_stack(stack_a->capacity);
 	if (stack_a->capacity == 2)
 		push_swap_sort_two(stack_a);
@@ -53,11 +99,8 @@ void	push_swap_input(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	if (argc <= 2)
-	{
-		ft_putstr_fd("Error\n", STDERR_FILENO);
+	if (argc == 1)
 		return (0);
-	}
 	else
 		push_swap_input(argc, argv);
 	return (0);

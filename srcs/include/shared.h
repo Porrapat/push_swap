@@ -34,6 +34,7 @@ int					pop(t_stack *stack);
 int					peek(t_stack *stack);
 void				print_stack(t_stack *stack_a);
 bool				is_sorted(t_stack *stack_a);
+bool				atoiv(const char *str, int *n);
 
 bool				ft_streq(const char *s1, const char *s2);
 bool				ft_is_number(char *number);

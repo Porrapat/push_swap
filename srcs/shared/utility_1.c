@@ -59,3 +59,26 @@ bool	is_sorted(t_stack *stack_a)
 	}
 	return (true);
 }
+
+bool	atoiv(const char *str, int *n)
+{
+	int		signal;
+	bool	overflow;
+
+	*n = 0;
+	signal = -1;
+	overflow = false;
+	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v')
+		str++;
+	if (*str == '+' || *str == '-')
+		if (*str++ == '-')
+			signal = 1;
+	while (*str >= '0' && *str <= '9')
+	{
+		*n = *n * 10 - (*str++ - '0');
+		if (*n > 0 || (*n == INT_MIN && signal < 0))
+			overflow = true;
+	}
+	*n *= signal;
+	return (overflow);
+}
