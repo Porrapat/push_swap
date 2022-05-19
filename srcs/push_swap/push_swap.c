@@ -59,7 +59,9 @@ void	input_push_swap_2(int num, char **temp, t_stack *stack_a)
 
 void	main_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->capacity == 2)
+	if (stack_a->capacity == 1)
+		exit(0);
+	else if (stack_a->capacity == 2)
 		push_swap_sort_two(stack_a);
 	else if (stack_a->capacity == 3)
 		push_swap_sort_three(stack_a);
