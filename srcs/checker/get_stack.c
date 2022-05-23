@@ -38,6 +38,24 @@ int	fill_element(t_stack *stack, char *arg)
 	return (status);
 }
 
+int	fill_element_size_two(char *args, t_stack **stack_a)
+{
+	char	**temp;
+	int		status;
+	int		i;
+	int		j;
+
+	status = 0;
+	j = 0;
+	temp = ft_split(args, ' ');
+	while (temp[i] != 0)
+		i++;
+	*stack_a = create_stack(i);
+	while (temp[j] && !status)
+		status = fill_element(*stack_a, temp[j++]);
+	return (status);
+}
+
 t_stack	*get_stack(int size, char **args)
 {
 	unsigned int	i;
@@ -48,16 +66,21 @@ t_stack	*get_stack(int size, char **args)
 		exit(0);
 	i = 0;
 	status = 0;
-	stack = create_stack(size);
-	while (args[i] && !status)
-		status = fill_element(stack, args[i++]);
-	if (status)
+	if (size == 2)
+		status = fill_element_size_two(args[1], &stack);
+	else
 	{
-		free_stack(stack);
-		ft_putendl_fd("Error", STDERR_FILENO);
-		exit(status);
+		stack = create_stack(size);
+		while (args[i] && !status)
+			status = fill_element(stack, args[i++]);
+		if (status)
+		{
+			free_stack(stack);
+			ft_putendl_fd("Error", STDERR_FILENO);
+			exit(status);
+		}
+		reverse_array(stack->array, stack->top + 1);
 	}
-	reverse_array(stack->array, stack->top + 1);
 	return (stack);
 }
 
