@@ -81,5 +81,6 @@ bool	atoiv(const char *str, int *n)
 		if (*n > 0 || (*n == INT_MIN && signal < 0))
 			overflow = true;
 	}
+	*n *= signal;
 	return (overflow);
 }
