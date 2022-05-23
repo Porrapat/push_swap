@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "checker.h"
+#include <stdio.h>
 
 int	fill_element(t_stack *stack, char *arg)
 {
@@ -47,12 +48,14 @@ int	fill_element_size_two(char *args, t_stack **stack_a)
 
 	status = 0;
 	j = 0;
+	i = 0;
 	temp = ft_split(args, ' ');
 	while (temp[i] != 0)
 		i++;
 	*stack_a = create_stack(i);
 	while (temp[j] && !status)
 		status = fill_element(*stack_a, temp[j++]);
+	reverse_array((*stack_a)->array, (*stack_a)->top + 1);
 	return (status);
 }
 
@@ -66,8 +69,8 @@ t_stack	*get_stack(int size, char **args)
 		exit(0);
 	i = 0;
 	status = 0;
-	if (size == 2)
-		status = fill_element_size_two(args[1], &stack);
+	if (size == 1)
+		status = fill_element_size_two(args[0], &stack);
 	else
 	{
 		stack = create_stack(size);
