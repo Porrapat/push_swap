@@ -15,7 +15,6 @@
 
 # include "shared.h"
 
-# define STACK_BUFFER 1024
 # define INSTRUCTIONS_BUFFER_SIZE 4096
 
 int					execute(char **instructions, t_stack *a);

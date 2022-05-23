@@ -48,7 +48,7 @@ t_stack	*get_stack(int size, char **args)
 		exit(0);
 	i = 0;
 	status = 0;
-	stack = create_stack(STACK_BUFFER);
+	stack = create_stack(size);
 	while (args[i] && !status)
 		status = fill_element(stack, args[i++]);
 	if (status)
