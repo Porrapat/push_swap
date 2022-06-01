@@ -50,7 +50,7 @@ void	main_index_number(t_stack *stack_a, int *temp)
 		min = INT_MAX;
 		while (j <= stack_a->top)
 		{
-			if ((stack_a->array[j] < min) && temp[j] == -1)
+			if ((stack_a->array[j] <= min) && temp[j] == -1)
 			{
 				min = stack_a->array[j];
 				min_index = j;
